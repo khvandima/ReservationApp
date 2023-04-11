@@ -53,6 +53,29 @@ try:
 
     #Выбор даты
     driver.find_element(By.ID, 'resvYmdSelect').click()
+    # переход на другую вкладку
+    driver.switch_to.window(driver.window_handles[1])
+    data_cells = driver.find_elements(By.XPATH, "//td[@data-handler='selectDay']")
+    time.sleep(2)
+    if data_cells:
+        print(data_cells)
+    else:
+        print("В этом месяце все дни заняты, ближайщие дни ")
+        next_btn = driver.find_element(By.XPATH, "//a[@title='다음 달']")
+        time.sleep(1)
+        next_btn.click()
+        time.sleep(2)
+        data_cells = driver.find_elements(By.XPATH, "//td[@data-handler='selectDay']")
+
+        for cell in data_cells:
+            print(cell.text)
+
+    time.sleep(3)
+
+
+    # Переход назад на главную вкладку
+    # driver.switch_to.window(driver.window_handles[1])
+
 
     time.sleep(5)
 
