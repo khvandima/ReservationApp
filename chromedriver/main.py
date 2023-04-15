@@ -11,7 +11,12 @@ import time
 # import URL
 from const import URL
 
-# создание объекта UserAgent
+import id_No_1
+import id_No_2
+import reg_data
+
+
+# создание объекта UserAgent (Фейковый Юзер-Агент)
 userAgent = UserAgent()
 
 # options
@@ -19,14 +24,6 @@ options = webdriver.ChromeOptions()
 options.add_argument(f"user-agent={userAgent.random}")
 options.add_argument("--disable-blink-features=AutomationControlled")
 
-# Ввод данных пользователя
-# id_No_1 = input("Введите первые 6 цифр ID")
-# id_No_2 = input("Введите вторые 6 цифр ID")
-# reg_data = input("Введите дату получения ID")
-
-id_No_1 = "811011"
-id_No_2 = "5780293"
-reg_data = "20151120"
 
 service = Service(executable_path='chromedriver')
 
@@ -36,22 +33,20 @@ try:
     driver.get(URL)
     driver.find_element(By.ID, "fgnRegNo1").send_keys(id_No_1)
     driver.find_element(By.ID, "fgnRegNo2").send_keys(id_No_2)
-    time.sleep(1)
     driver.find_element(By.ID, "regYmd").send_keys(reg_data)
-    time.sleep(1)
     driver.find_element(By.ID, "confirmBtn1").click()
     time.sleep(1)
     driver.find_element(By.ID, "deskSeq738").click()
-    time.sleep(3)
+    time.sleep(1)
     driver.find_element(By.ID, 'selBusiType1_1_F01').click()
-    time.sleep(3)
+    time.sleep(1)
 
     # Выпадающий список для номера телефона
     dropdown = Select(driver.find_element(By.ID, "mobileTelNo1"))
     dropdown.select_by_value("010")
-    time.sleep(3)
+    time.sleep(1)
 
-    #Выбор даты
+    # Выбор даты
     driver.find_element(By.ID, 'resvYmdSelect').click()
     # переход на другую вкладку
     driver.switch_to.window(driver.window_handles[1])
@@ -72,10 +67,8 @@ try:
 
     time.sleep(3)
 
-
     # Переход назад на главную вкладку
-    # driver.switch_to.window(driver.window_handles[1])
-
+    driver.switch_to.window(driver.window_handles[1])
 
     time.sleep(5)
 
