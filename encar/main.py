@@ -8,6 +8,8 @@ from selenium.webdriver.support.select import Select
 # import Fake UserAgent
 from fake_useragent import UserAgent
 
+from config import URL
+
 import time
 
 # создание объекта UserAgent (Фейковый Юзер-Агент)
@@ -23,3 +25,10 @@ service = Service(executable_path='chromedriver')
 
 driver = webdriver.Chrome(service=service, options=options)
 
+try:
+    driver.get(url=URL)
+except Exception as ex:
+    print(ex)
+finally:
+    driver.close()
+    driver.quit()
