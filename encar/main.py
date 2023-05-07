@@ -1,4 +1,5 @@
 import requests
+import os
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -27,6 +28,10 @@ driver = webdriver.Chrome(service=service, options=options)
 
 try:
     driver.get(url=URL)
+    time.sleep(3)
+
+    
+
 except Exception as ex:
     print(ex)
 finally:

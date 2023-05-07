@@ -11,9 +11,9 @@ import time
 # import URL
 from const import URL
 
-import id_No_1
-import id_No_2
-import reg_data
+from const import id_No_1
+from const import id_No_2
+from const import reg_data
 
 
 # создание объекта UserAgent (Фейковый Юзер-Агент)
