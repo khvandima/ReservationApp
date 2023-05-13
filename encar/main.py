@@ -29,7 +29,8 @@ driver = webdriver.Chrome(service=service, options=options)
 try:
     driver.get(url=URL)
     time.sleep(3)
-
+    listT = driver.find_elements(By.CLASS_NAME, "list_search")
+    print(listT)
     
 
 except Exception as ex:
