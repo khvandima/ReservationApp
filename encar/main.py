@@ -29,9 +29,12 @@ driver = webdriver.Chrome(service=service, options=options)
 try:
     driver.get(url=URL)
     time.sleep(3)
-    listT = driver.find_elements(By.CLASS_NAME, "list_search")
-    print(listT)
-    
+    driver.find_element(By.ID, "manufact").click()
+    items = driver.find_elements(By.CLASS_NAME, "link_item")
+    for item in items:
+        print(item.text)
+
+
 
 except Exception as ex:
     print(ex)
