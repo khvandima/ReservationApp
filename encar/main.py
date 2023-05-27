@@ -32,7 +32,11 @@ try:
     driver.find_element(By.ID, "manufact").click()
     items = driver.find_elements(By.CLASS_NAME, "link_item")
     for item in items:
-        print(item.text)
+        if item.text == "현대":
+            time.sleep(1)
+            item.click()
+            time.sleep(1)
+    time.sleep(2)
 
 
 
