@@ -31,12 +31,18 @@ try:
     time.sleep(3)
     driver.find_element(By.ID, "manufact").click()
     items = driver.find_elements(By.CLASS_NAME, "link_item")
+    # time.sleep(1)
+    # for item in items:
+    #     print(item.text)
+    time.sleep(1)
     for item in items:
         if item.text == "현대":
             time.sleep(1)
             item.click()
             time.sleep(1)
     time.sleep(2)
+    driver.find_element(By.ID, "series").click()
+
 
 
 
