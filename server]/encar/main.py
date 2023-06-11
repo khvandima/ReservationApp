@@ -28,7 +28,7 @@ driver = webdriver.Chrome(service=service, options=options)
 
 try:
     driver.get(url=URL)
-    time.sleep(3)
+    time.sleep(1)
     driver.find_element(By.ID, "manufact").click()
     items = driver.find_elements(By.CLASS_NAME, "link_item")
     # time.sleep(1)
