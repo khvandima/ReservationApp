@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Login() {
+
+const [username, setUsername] = useState("")
+const onChange = (e) => {
+    setUsername(e.target.value);
+  };
   return (
     <div className="App">
-        <input>
+        <label>username</label>
+        <input onChange={onChange} value={username}/>
     </div>
   );
 }
